@@ -12,3 +12,13 @@ body {
 footer {
     text-align: center;
 }
+
+.swiper-container {
+    width: 600px;
+    height: 300px;
+} 
+
+img {
+    width: 500px;
+    height: 300px;
+}
