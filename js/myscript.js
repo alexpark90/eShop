@@ -7,7 +7,8 @@
  // global variables
 var jsonData;
 var mySwiper;
-
+var cars;
+var carId;
 
 
 $(document).ready(function () {
@@ -31,21 +32,15 @@ $(document).on("pagebeforeshow", "#home", function() {
 		type : "GET",
 		url : "cars.json",
 		dataType : "json",
-		success : function(data) {
-			// store json to jsonData
-			jsonData = data;
-			handleMain(data);
-		},
-		error : function(error) {
-			alert("Error occured! " + error.state + " - " + error.statusText);
-		}
+		success : handleMain,
+		error : handleError
 	});
 });
 
 var handleMain = function(data) {
 
 	// get cars array
-	var cars = data.cars;
+	cars = data.cars;
 	
 	// loop through all car in the array
 	for(var i = 0; i < cars.length; i++)
@@ -53,7 +48,7 @@ var handleMain = function(data) {
 		// add a car to the slide
 		mySwiper.appendSlide(
 								"<div class='swiper-slide'>" +
-									"<a href='#carDetail'>" + 
+									"<a href='#carDetail' id='car'" + i + ">" + 
 										"<img src='img/" + cars[i].id + ".png' />" +
 									"</a>" +
 								"</div>"
@@ -71,4 +66,40 @@ var handleMain = function(data) {
 		// refresh the list
 		$(".car-list").listview("refresh");
 	}
+};
+
+
+
+// add click event for all li under .car-list
+$(document).on("click", ".car-list >li", function() {
+
+	var id = $(this).closest("li").attr("li-id");
+	setCarId(id);
+});
+
+// add click event for all slide image
+$(document).on("click", ".swiper-slide", function() {
+
+	var id = $(this).closest("a").attr("id").charAt(3); 
+	setCarId(id);
+});
+
+
+// function to set car id
+var setCarId = function(id) {
+	
+	carId = id;
+};
+
+// function to get car id
+var getCarId = function() {
+
+	var value = carId;
+	return value;
+};
+
+// function to handle error on calling json
+var handleError = function(error) {
+	
+	alert("Error occured! " + error.state + " - " + error.statusText);
 };
