@@ -42,6 +42,9 @@ var handleMain = function(data) {
 	// get cars array
 	cars = data.cars;
 	
+	// remove all slide before adding
+	mySwiper.removeAllSlides();
+
 	// loop through all car in the array
 	for(var i = 0; i < cars.length; i++)
 	{
