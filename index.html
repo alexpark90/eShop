@@ -72,12 +72,36 @@
         
         <!-- header -->
         <header data-role="header">
+
+            <a href="#home" data-transition="flow"
+               class="ui-btn ui-icon-back ui-btn-icon-notext">Back</a>
             <h1 class="ui-title">This is header</h1>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
-            Hello! You are in detail page
+            <div id="photo"></div>
+
+            <form class="ui-grid-a">
+                <!-- rate-->
+                <div class="ui-block-a">RATE:
+                </div>
+
+
+                <!-- buy button -->
+                <div class="ui-block-b"><div class="button-wrap"><button class="ui-shadow ui-btn ui-corner-all">BUY</button></div></div>
+            </form>
+            <!-- quantity-->
+            <form>
+                <label for="number-3">Quantity:</label>
+                <input type="number" data-clear-btn="false" name="number-3" pattern="[0-9]*" id="number-3" value="">
+            </form>
+            <div data-role="collapsible">
+                <h4>Specs</h4>
+                <p></p>
+            </div>
+            <div id="price">Price:</div>
+
         </section>
         
         <!-- footer -->
