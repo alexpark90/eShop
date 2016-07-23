@@ -5,20 +5,31 @@
  */
 
 
+/**** Custom Icon *****/
+
+.ui-icon-user:after {
+    background-image: url(../img/user.svg) 50% 50%;
+    /* Make your icon fit */
+    background-size: 16px 16px;
+}
+
+
+
+/***** for all pages *****/
+
 body, html {
 	height: 100%;
     font-size: 12px;
 }
 
+
+header {
+	height: 50px;
+}
+
 footer {
     text-align: center;
 }
-
-.swiper-container {
-    width: 100%;
-    height: 100%;
-    border-bottom: solid lightgrey 5px;
-} 
 
 img {
 	display: block;
@@ -28,39 +39,39 @@ img {
 }
 
 a {
-
 	text-decoration: none;
+	padding: 5px !important;
+	text-align: center !important
 }
 
-header {
-	height: 50px;
+
+/***** for homePage *****/
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    border-bottom: solid lightgrey 5px;
+} 
+
+
+.list-container ul {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100% !important;
+	box-shadow: none;
 }
 
-
-.card {
+.list-container li {
 	width: 44% !important;
-	box-sizing: border-box;
-	margin: 5% 3% auto !important;
-	background: rgba(255,255,255,1);
-	background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
-	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(17%, rgba(246,246,246,1)), color-stop(23%, rgba(246,246,246,1)), color-stop(28%, rgba(246,246,246,1)), color-stop(39%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
-	background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
-	background: -o-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
-	background: -ms-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
-	background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
-	text-align: center;
+    margin: 3% !important;
+    float: left;
+    border: 1px solid #ccc !important;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
-.ui-icon-user:after {
-    background-image: url(../img/user.svg) 50% 50%;
-    /* Make your icon fit */
-    background-size: 16px 16px;
+.list-container li img {
+	position: relative !important;
+	width: 100% !important;
+	margin-bottom: 5px;
 }
-
-.ui-nosvg .ui-icon-user:after {
-    background-image: url(../img/user.svg);
-    /* Make your icon fit */
-    background-size: 30px 30px;
-}
-
-

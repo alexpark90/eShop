@@ -46,11 +46,7 @@
             <div class="swiper-container">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"><a href="#carDetail"><img src="img/eCar0.png" /></a></div>
-                    <div class="swiper-slide"><a href="#carDetail"><img src="img/eCar1.png" /></a></div>
-                    <div class="swiper-slide"><a href="#carDetail"><img src="img/eCar2.png" /></a></div>
-                    <div class="swiper-slide"><a href="#carDetail"><img src="img/eCar3.png" /></a></div>
+                    <div clss="swiper-slide"></div>
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -61,24 +57,10 @@
             </div>
 
             <!-- List of products -->
-            <div class="card-container">
-                <p>All Products: </p>
-                <section class="ui-grid-a">
-                    <div class="ui-block-a card">
-                        <a href="#carDetail"><img src="img/eCar0.png" />Product1</a>
-                    </div>
-                    <div class="ui-block-b card">
-                        <a href="#carDetail"><img src="img/eCar1.png" />Product2</a>
-                    </div>
-                </section>
-                <section class="ui-grid-a">
-                    <div class="ui-block-a card">
-                        <a href="#carDetail"><img src="img/eCar2.png" />Product3</a>
-                    </div>
-                    <div class="ui-block-b card">
-                        <a href="#carDetail"><img src="img/eCar3.png" />Product4</a>
-                    </div>
-                </section>
+            <div class="list-container">
+                <p><b>All Products: </b></p>
+                <ul class="car-list" data-role="listview" data-inset="true" data-filter="true" data-icon="false">
+                </ul>
             </div>
 
         </section>

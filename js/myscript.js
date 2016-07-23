@@ -3,12 +3,17 @@
  *  Date: 
  *	This is the main javascript for eShop
  */
+
+ // global variables
 var jsonData;
+var mySwiper;
+
+
 
 $(document).ready(function () {
 
 	//initialize swiper when document ready  
-	var mySwiper = new Swiper ('.swiper-container', {
+	mySwiper = new Swiper ('.swiper-container', {
 		
 		direction: 'horizontal',
   		loop: true,
@@ -27,6 +32,7 @@ $(document).on("pagebeforeshow", "#home", function() {
 		url : "cars.json",
 		dataType : "json",
 		success : function(data) {
+			// store json to jsonData
 			jsonData = data;
 			handleMain(data);
 		},
@@ -38,6 +44,31 @@ $(document).on("pagebeforeshow", "#home", function() {
 
 var handleMain = function(data) {
 
+	// get cars array
 	var cars = data.cars;
-	console.log(cars[0]);
+	
+	// loop through all car in the array
+	for(var i = 0; i < cars.length; i++)
+	{
+		// add a car to the slide
+		mySwiper.appendSlide(
+								"<div class='swiper-slide'>" +
+									"<a href='#carDetail'>" + 
+										"<img src='img/" + cars[i].id + ".png' />" +
+									"</a>" +
+								"</div>"
+							);
+
+		// add a car to the list
+		$(".car-list").append(
+							"<li li-id='" + i +"''>" +
+								"<a href='#carDetail'>" +
+									"<img src='img/" + cars[i].id + ".png' />" + cars[i].brand + " " + cars[i].model +
+								"</a>" +
+							"</li>"
+							);
+
+		// refresh the list
+		$(".car-list").listview("refresh");
+	}
 };
