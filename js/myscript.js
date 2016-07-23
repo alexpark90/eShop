@@ -3,6 +3,7 @@
  *  Date: 
  *	This is the main javascript for eShop
  */
+var jsonData;
 
 $(document).ready(function () {
 
@@ -26,6 +27,7 @@ $(document).on("pagebeforeshow", "#home", function() {
 		url : "cars.json",
 		dataType : "json",
 		success : function(data) {
+			jsonData = data;
 			handleMain(data);
 		},
 		error : function(error) {

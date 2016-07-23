@@ -5,7 +5,8 @@
  */
 
 
-body {
+body, html {
+	height: 100%;
     font-size: 12px;
 }
 
@@ -14,11 +15,52 @@ footer {
 }
 
 .swiper-container {
-    width: 600px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
+    border-bottom: solid lightgrey 5px;
 } 
 
 img {
-    width: 500px;
-    height: 300px;
+	display: block;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
 }
+
+a {
+
+	text-decoration: none;
+}
+
+header {
+	height: 50px;
+}
+
+
+.card {
+	width: 44% !important;
+	box-sizing: border-box;
+	margin: 5% 3% auto !important;
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(17%, rgba(246,246,246,1)), color-stop(23%, rgba(246,246,246,1)), color-stop(28%, rgba(246,246,246,1)), color-stop(39%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+	background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
+	background: -o-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
+	background: -ms-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
+	background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 17%, rgba(246,246,246,1) 23%, rgba(246,246,246,1) 28%, rgba(246,246,246,1) 39%, rgba(237,237,237,1) 100%);
+	text-align: center;
+}
+
+.ui-icon-user:after {
+    background-image: url(../img/user.svg) 50% 50%;
+    /* Make your icon fit */
+    background-size: 16px 16px;
+}
+
+.ui-nosvg .ui-icon-user:after {
+    background-image: url(../img/user.svg);
+    /* Make your icon fit */
+    background-size: 30px 30px;
+}
+
+

@@ -35,11 +35,13 @@
 
         <!-- header -->
         <header data-role="header">
-            <h1 class="ui-title">This is header</h1>
+            <h1>This is Header</h1>
+            <a href="#" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
+
             <!-- Slider main container -->
             <div class="swiper-container">
                 <!-- Additional required wrapper -->
@@ -55,14 +57,35 @@
                 
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                
+                <div class="swiper-button-next"></div>                
             </div>
+
+            <!-- List of products -->
+            <div class="card-container">
+                <p>All Products: </p>
+                <section class="ui-grid-a">
+                    <div class="ui-block-a card">
+                        <a href="#carDetail"><img src="img/eCar0.png" />Product1</a>
+                    </div>
+                    <div class="ui-block-b card">
+                        <a href="#carDetail"><img src="img/eCar1.png" />Product2</a>
+                    </div>
+                </section>
+                <section class="ui-grid-a">
+                    <div class="ui-block-a card">
+                        <a href="#carDetail"><img src="img/eCar2.png" />Product3</a>
+                    </div>
+                    <div class="ui-block-b card">
+                        <a href="#carDetail"><img src="img/eCar3.png" />Product4</a>
+                    </div>
+                </section>
+            </div>
+
         </section>
         
         <!-- footer -->
         <footer data-role="footer">
-            This is footer
+            <p>Footer here</p>
         </footer>
     </div>
     <!-- end of home page -->
