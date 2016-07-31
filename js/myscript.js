@@ -26,6 +26,7 @@ $(document).ready(function () {
 	for(var i = 0; i < 4; i++)
 	{
 		localStorage.setItem("eShop_car" + i + "_rate", i + 2);	
+		localStorage.setItem("eShop_car" + i + "_sale", i + 5);
 	}
 });
 
@@ -124,11 +125,13 @@ var handleAdmin = function() {
 	var title = "Average Rating of Cars"
 	var carLabels = [];
 	var rateData = [];
+	var salesData = [];
 
 	for(var i = 0; i < cars.length; i++)
 	{
 		carLabels[i] = cars[i].brand;
 		rateData[i] = localStorage.getItem("eShop_car" + i + "_rate");
+		salesData[i] = localStorage.getItem("eShop_car" + i + "_sale");
 	}
 
 
@@ -168,10 +171,27 @@ var handleAdmin = function() {
 	
 	var doughnutType = new Chart($("#salesChart"), {
 	    type: 'doughnut',
-	    data: data,
-	    options: options
+	    data: {
+	    	labels: carLabels,
+	    	datasets: [{
+	    		label: "Sales",
+	    		data: salesData,
+	    		backgroundColor: [
+	                "#F44336",
+	                "#E91E63",
+	                "#9C27B0"
+            	],
+	    	}]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
+	        }
+	    }
 	});
-	
-
 
 };
