@@ -21,6 +21,12 @@ $(document).ready(function () {
 	    nextButton: '.swiper-button-next',
 	    prevButton: '.swiper-button-prev'
 	});
+
+	// temporaty actions to test admin page
+	for(var i = 0; i < 4; i++)
+	{
+		localStorage.setItem("eShop_car" + i + "_rate", i + 2);	
+	}
 });
 
 
@@ -35,6 +41,13 @@ $(document).on("pagebeforeshow", "#home", function() {
 		error : handleError
 	});
 });
+
+
+$(document).on("pagebeforeshow", "#admin", function() {
+
+	handleAdmin();
+});
+
 
 var handleMain = function(data) {
 
@@ -104,4 +117,61 @@ var getCarId = function() {
 var handleError = function(error) {
 	
 	alert("Error occured! " + error.state + " - " + error.statusText);
+};
+
+var handleAdmin = function() {
+
+	var title = "Average Rating of Cars"
+	var carLabels = [];
+	var rateData = [];
+
+	for(var i = 0; i < cars.length; i++)
+	{
+		carLabels[i] = cars[i].brand;
+		rateData[i] = localStorage.getItem("eShop_car" + i + "_rate");
+	}
+
+
+	var ratingChart = new Chart($("#ratingChart"), {
+	    type: 'bar',
+	    data: {
+	        labels: carLabels,
+	        datasets: [{
+	            label: title,
+	            data: rateData,
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.8)',
+	                'rgba(3, 169, 244, 0.8)',
+	                'rgba(179, 229, 252, 0.8)',
+	                'rgba(247, 78, 194, 0.8)'
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(220,220,220,1)',
+	                'rgba(220,220,220,1)',
+	                'rgba(220,220,220,1)'
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true
+	                }
+	            }]
+	        }
+	    }
+	});
+
+	
+	var doughnutType = new Chart($("#salesChart"), {
+	    type: 'doughnut',
+	    data: data,
+	    options: options
+	});
+	
+
+
 };

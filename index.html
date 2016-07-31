@@ -37,7 +37,7 @@
         <!-- header -->
         <header data-role="header">
             <h1>This is Header</h1>
-            <a href="#" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <a href="#admin" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
         </header>
 
         <!-- contents -->
@@ -94,36 +94,23 @@
     <!-- end of carDetail page -->
 
     <!-- Admin page -->
-    <div data-role="page" id="home" data-theme="a">
+    <div data-role="page" id="admin" data-theme="a">
 
         <!-- header -->
         <header data-role="header">
             <h1>This is Header</h1>
-            <a href="#" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <a href="#home" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
 
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-                
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>                
-            </div>
-
-            <!-- List of products -->
-            <div class="list-container">
-                <p><b>All Products: </b></p>
-                <ul class="car-list" data-role="listview" data-inset="true" data-filter="true" data-icon="false">
-                </ul>
-            </div>
+        <div class="ui-grid-solo">
+            <canvas id="ratingChart" width="50%" height="50%"></canvas>
+        </div>
+        <div class="ui-gird-solo">
+            <canvas id="salesChart" width="50%" height="50"5></canvas>
+        </div>
 
         </section>
         
