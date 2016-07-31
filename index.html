@@ -25,6 +25,7 @@
     <script src="js/jquery.mobile.js"></script>
     <script src="js/swiper.jquery.min.js"></script>
     <script src="js/swiper.min.js"></script>
+    <script src="js/Chart.min.js"></script>
 	<script src="js/myscript.js"></script>
 
 </head>
@@ -91,6 +92,47 @@
         </footer>
     </div>
     <!-- end of carDetail page -->
+
+    <!-- Admin page -->
+    <div data-role="page" id="home" data-theme="a">
+
+        <!-- header -->
+        <header data-role="header">
+            <h1>This is Header</h1>
+            <a href="#" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+        </header>
+
+        <!-- contents -->
+        <section class="ui-content" role="main">
+
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>                
+            </div>
+
+            <!-- List of products -->
+            <div class="list-container">
+                <p><b>All Products: </b></p>
+                <ul class="car-list" data-role="listview" data-inset="true" data-filter="true" data-icon="false">
+                </ul>
+            </div>
+
+        </section>
+        
+        <!-- footer -->
+        <footer data-role="footer">
+            <p>Footer here</p>
+        </footer>
+    </div>
+    <!-- end of admin page -->
 
 </body>
 </html>
