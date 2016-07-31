@@ -5,7 +5,6 @@
  */
 
  // global variables
-var jsonData;
 var mySwiper;
 var cars;
 var carId;
@@ -51,7 +50,7 @@ var handleMain = function(data) {
 		// add a car to the slide
 		mySwiper.appendSlide(
 								"<div class='swiper-slide'>" +
-									"<a href='#carDetail' id='car'" + i + ">" + 
+									"<a href='#carDetail' id='car" + i + "'>" + 
 										"<img src='img/" + cars[i].id + ".png' />" +
 									"</a>" +
 								"</div>"
@@ -81,9 +80,9 @@ $(document).on("click", ".car-list >li", function() {
 });
 
 // add click event for all slide image
-$(document).on("click", ".swiper-slide", function() {
+$(document).on("click", ".swiper-slide >a", function() {
 
-	var id = $(this).closest("a").attr("id").charAt(3); 
+	var id = $(this).closest("a").attr("id").charAt(3);
 	setCarId(id);
 });
 
