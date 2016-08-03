@@ -58,6 +58,9 @@ var handleMain = function(data) {
 	// remove all slide before adding
 	mySwiper.removeAllSlides();
 
+	// reset car-list before adding
+	$(".car-list").html("");
+
 	// loop through all car in the array
 	for(var i = 0; i < cars.length; i++)
 	{
@@ -173,15 +176,16 @@ var handleAdmin = function() {
 	                    beginAtZero:true
 	                }
 	            }]
+	        },
+	        animation: {
+	        	duration: 2000
 	        }
 	    }
 	});
 
-	var ctx = document.getElementById("salesChart").getContext("2d");
 	// create a donught chart for sales 
-	var doughnutType = new Chart(ctx, {
+	var doughnutType = new Chart($("#salesChart"), {
 	    type: 'doughnut',
-        animation: true,
 	    data: {
 	    	labels: carLabels,
 	    	datasets: [{
@@ -205,7 +209,7 @@ var handleAdmin = function() {
 	            position: 'bottom'
 	        },
 	        animation: {
-	        	duration: 3000
+	        	duration: 2000
 	        }
 	    }
 	});
