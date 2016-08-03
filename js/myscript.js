@@ -127,14 +127,22 @@ var handleAdmin = function() {
 	var rateData = [];
 	var salesData = [];
 
+	// loop to set labels and data for graphs
 	for(var i = 0; i < cars.length; i++)
 	{
+		// set names of cars as for labels
 		carLabels[i] = cars[i].brand;
-		rateData[i] = localStorage.getItem("eShop_car" + i + "_rate");
-		salesData[i] = localStorage.getItem("eShop_car" + i + "_sale");
+
+		// get values from local storage
+		var rate = localStorage.getItem("eShop_car" + i + "_rate");
+		var sales = localStorage.getItem("eShop_car" + i + "_sale");
+
+		// assign 0 value if there is no data in local storage
+		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
+		salesData != 'undefined' ? salesData[i] = sales : salesData[i] = 0;
 	}
 
-
+	// create a bar chart for ratings 
 	var ratingChart = new Chart($("#ratingChart"), {
 	    type: 'bar',
 	    data: {
@@ -168,7 +176,7 @@ var handleAdmin = function() {
 	    }
 	});
 
-	
+	// create a donught chart for sales 
 	var doughnutType = new Chart($("#salesChart"), {
 	    type: 'doughnut',
 	    data: {
@@ -193,5 +201,4 @@ var handleAdmin = function() {
 	        }
 	    }
 	});
-
 };
