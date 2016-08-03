@@ -44,7 +44,7 @@ $(document).on("pagebeforeshow", "#home", function() {
 });
 
 
-$(document).on("pagebeforeshow", "#admin", function() {
+$(document).on("pageshow", "#admin", function() {
 
 	handleAdmin();
 });
@@ -122,7 +122,8 @@ var handleError = function(error) {
 
 var handleAdmin = function() {
 
-	var title = "Average Rating of Cars"
+	var rateTitle = "Average Rating";
+	var salesTitle = "Car Sales";
 	var carLabels = [];
 	var rateData = [];
 	var salesData = [];
@@ -148,25 +149,25 @@ var handleAdmin = function() {
 	    data: {
 	        labels: carLabels,
 	        datasets: [{
-	            label: title,
 	            data: rateData,
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.8)',
 	                'rgba(3, 169, 244, 0.8)',
 	                'rgba(179, 229, 252, 0.8)',
 	                'rgba(247, 78, 194, 0.8)'
-	            ],
-	            borderColor: [
-	                'rgba(255,99,132,1)',
-	                'rgba(220,220,220,1)',
-	                'rgba(220,220,220,1)',
-	                'rgba(220,220,220,1)'
-	            ],
-	            borderWidth: 1
+	            ]
 	        }]
 	    },
 	    options: {
-	        scales: {
+	    	title: {
+	    		display: true,
+	    		position: 'top',
+	    		text: rateTitle
+	    	},
+	    	legend: {
+	            display: false,
+	        },
+	    	scales: {
 	            yAxes: [{
 	                ticks: {
 	                    beginAtZero:true
@@ -176,9 +177,11 @@ var handleAdmin = function() {
 	    }
 	});
 
+	var ctx = document.getElementById("salesChart").getContext("2d");
 	// create a donught chart for sales 
-	var doughnutType = new Chart($("#salesChart"), {
+	var doughnutType = new Chart(ctx, {
 	    type: 'doughnut',
+        animation: true,
 	    data: {
 	    	labels: carLabels,
 	    	datasets: [{
@@ -192,12 +195,17 @@ var handleAdmin = function() {
 	    	}]
 	    },
 	    options: {
-	        scales: {
-	            yAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                }
-	            }]
+	    	title: {
+	    		display: true,
+	    		position: 'top',
+	    		text: salesTitle
+	    	},
+	    	legend: {
+	            display: true,
+	            position: 'bottom'
+	        },
+	        animation: {
+	        	duration: 3000
 	        }
 	    }
 	});
