@@ -37,7 +37,8 @@
         <!-- header -->
         <header data-role="header">
             <h1>This is Header</h1>
-            <a href="#admin" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <a href="#popup" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"
+                data-rel="dialog" data-transition="pop"></a>
         </header>
 
         <!-- contents -->
@@ -93,33 +94,26 @@
     </div>
     <!-- end of carDetail page -->
 
-    <!-- Admin page -->
-    <div data-role="page" id="admin" data-theme="a">
-
-        <!-- header -->
+    <!-- Popup for login as an admin -->
+    <div data-role="page" id="popup" data-theme="a">
         <header data-role="header">
-            <h1>This is Header</h1>
-            <a href="#home" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <h1>Admin Only</h1>
         </header>
 
-        <!-- contents -->
-        <section class="ui-content" role="main">
-
-        <div class="ui-grid-solo">
-            <canvas id="ratingChart" width="50%" height="50%"></canvas>
+        <div class="ui-content" role="main">
+            <form>
+                <label for="id">Enter Id:</label><input type="text" id="id" required>
+                <label for="pwd">Enter Password:</label><input type="password" id="pwd" required>
+                <br />
+                <p id="error"></p>
+                <div class="ui-grid-a">
+                    <button type="submit" class="ui-btn ui-block-a ui-corner-all">Login</button>
+                    <a href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</a>
+                </div>
+            </form>      
+            <br />
         </div>
-        <div class="ui-gird-solo">
-            <canvas id="salesChart" width="50%" height="50%"></canvas>
-        </div>
-
-        </section>
-        
-        <!-- footer -->
-        <footer data-role="footer">
-            <p>Footer here</p>
-        </footer>
     </div>
-    <!-- end of admin page -->
-
+    <!-- end of popup -->
 </body>
 </html>

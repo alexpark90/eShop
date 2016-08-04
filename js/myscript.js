@@ -8,6 +8,7 @@
 var mySwiper;
 var cars;
 var carId;
+var admin;
 
 
 $(document).ready(function () {
@@ -41,13 +42,19 @@ $(document).on("pagebeforeshow", "#home", function() {
 		success : handleMain,
 		error : handleError
 	});
+
+	$.ajax({
+		type : "GET",
+		url : "users.json",
+		dataType : "json",
+		success : function(data){
+			admin = data.admin;
+		},
+		error : handleError
+	});
 });
 
 
-$(document).on("pageshow", "#admin", function() {
-
-	handleAdmin();
-});
 
 
 var handleMain = function(data) {
@@ -103,6 +110,22 @@ $(document).on("click", ".swiper-slide >a", function() {
 	setCarId(id);
 });
 
+// add a form submit event to login as an admin
+$(document).on("submit", "form", function() {
+
+	// if correct credentials are provided
+	if($("#id").val() == admin.id && $("#pwd").val() == admin.password)
+	{
+		// go to admin page
+		$(location).attr("href", "./admin.html");
+	}
+	else
+	{
+		// show error message
+		$("#error").html("Incorrect ID or Password!").css("color", "red");
+	}
+	return false;
+});
 
 // function to set car id
 var setCarId = function(id) {
@@ -123,85 +146,3 @@ var handleError = function(error) {
 	alert("Error occured! " + error.state + " - " + error.statusText);
 };
 
-var handleAdmin = function() {
-
-	var rateTitle = "Average Rating";
-	var salesTitle = "Car Sales";
-	var carLabels = [];
-	var rateData = [];
-	var salesData = [];
-
-	// loop to set labels and data for graphs
-	for(var i = 0; i < cars.length; i++)
-	{
-		// set names of cars as for labels
-		carLabels[i] = cars[i].brand;
-
-		// get values from local storage
-		var rate = localStorage.getItem("eShop_car" + i + "_rate");
-		var sales = localStorage.getItem("eShop_car" + i + "_sale");
-		var colors = [ "#F44336", "#4CAF50", "#9C27B0", "#2196F3" ];
-
-		// assign 0 value if there is no data in local storage
-		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
-		salesData != 'undefined' ? salesData[i] = sales : salesData[i] = 0;
-	}
-
-	// create a bar chart for ratings 
-	var ratingChart = new Chart($("#ratingChart"), {
-	    type: 'bar',
-	    data: {
-	        labels: carLabels,
-	        datasets: [{
-	            data: rateData,
-	            backgroundColor: colors
-	        }]
-	    },
-	    options: {
-	    	title: {
-	    		display: true,
-	    		position: 'top',
-	    		text: rateTitle
-	    	},
-	    	legend: {
-	            display: false,
-	        },
-	    	scales: {
-	            yAxes: [{
-	                ticks: {
-	                    beginAtZero:true
-	                }
-	            }]
-	        },
-	        animation: {
-	        	duration: 2000
-	        }
-	    }
-	});
-
-	// create a donught chart for sales 
-	var doughnutType = new Chart($("#salesChart"), {
-	    type: 'doughnut',
-	    data: {
-	    	labels: carLabels,
-	    	datasets: [{
-	    		data: salesData,
-	    		backgroundColor: colors,
-	    	}]
-	    },
-	    options: {
-	    	title: {
-	    		display: true,
-	    		position: 'top',
-	    		text: salesTitle
-	    	},
-	    	legend: {
-	            display: true,
-	            position: 'bottom'
-	        },
-	        animation: {
-	        	duration: 2000
-	        }
-	    }
-	});
-};
