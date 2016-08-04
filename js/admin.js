@@ -4,7 +4,7 @@ var cars = [];
 var salesData = [];
 var rateData = [];
 
-$(document).on("pageshow", "#admin", function() {
+$(document).on("pagebeforeshow", "#admin", function() {
 
 	$.ajax({
 		type : "GET",
@@ -41,8 +41,9 @@ var handleAdmin = function(data) {
 	}
 
 
-	// draw a donught chart for sales 
-	var doughnutType = new Chart($("#salesChart"), {
+	////////// draw a donught chart for sales 
+
+	var doughnutChart = new Chart($("#salesChart"), {
 	    type: 'doughnut',
 	    animation: true,
 	    data: {
@@ -68,8 +69,8 @@ var handleAdmin = function(data) {
 	    }
 	});
 
-	// draw a bar chart for ratings 
-	var ratingChart = new Chart($("#ratingChart"), {
+	///////// draw a bar chart for ratings 
+	var barChart = new Chart($("#ratingChart"), {
 	    type: 'bar',
 	    animation: true,
 	    data: {
