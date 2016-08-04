@@ -113,7 +113,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + cars[i].price + "</td>" +
+					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
 					"<td>" + salesData[i] + "</td>" +
 				"</tr>";
 		salesBody += row;
@@ -134,7 +134,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + cars[i].price + "</td>" +
+					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
 					"<td>" + rateData[i] + "</td>" +
 				"</tr>";
 		ratingBody += row;
