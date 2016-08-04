@@ -1,10 +1,10 @@
 
 // global variables
 var cars = [];
-var rateData = [];
 var salesData = [];
+var rateData = [];
 
-$(document).on("pagebeforeshow", "#admin", function() {
+$(document).on("pageshow", "#admin", function() {
 
 	$.ajax({
 		type : "GET",
@@ -20,8 +20,8 @@ var handleAdmin = function(data) {
 	// get cars array
 	cars = data.cars;
 
-	var rateTitle = "Average Rating";
 	var salesTitle = "Car Sales";
+	var rateTitle = "Average Rating";
 	var colors = [ "#F44336", "#4CAF50", "#9C27B0", "#2196F3" ];
 	var carLabels = [];
 
@@ -32,17 +32,46 @@ var handleAdmin = function(data) {
 		carLabels[i] = cars[i].brand;
 
 		// get values from local storage
-		var rate = localStorage.getItem("eShop_car" + i + "_rate");
 		var sales = localStorage.getItem("eShop_car" + i + "_sale");
+		var rate = localStorage.getItem("eShop_car" + i + "_rate");
 
 		// assign 0 value if there is no data in local storage
-		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
 		salesData != 'undefined' ? salesData[i] = sales : salesData[i] = 0;
+		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
 	}
+
+
+	// draw a donught chart for sales 
+	var doughnutType = new Chart($("#salesChart"), {
+	    type: 'doughnut',
+	    animation: true,
+	    data: {
+	    	labels: carLabels,
+	    	datasets: [{
+	    		data: salesData,
+	    		backgroundColor: colors,
+	    	}]
+	    },
+	    options: {
+	    	title: {
+	    		display: true,
+	    		position: 'top',
+	    		text: salesTitle
+	    	},
+	    	legend: {
+	            display: true,
+	            position: 'bottom'
+	        },
+	        animation: {
+	        	duration: 2000
+	        }
+	    }
+	});
 
 	// draw a bar chart for ratings 
 	var ratingChart = new Chart($("#ratingChart"), {
 	    type: 'bar',
+	    animation: true,
 	    data: {
 	        labels: carLabels,
 	        datasets: [{
@@ -72,69 +101,64 @@ var handleAdmin = function(data) {
 	    }
 	});
 
-	// draw a donught chart for sales 
-	var doughnutType = new Chart($("#salesChart"), {
-	    type: 'doughnut',
-	    data: {
-	    	labels: carLabels,
-	    	datasets: [{
-	    		data: salesData,
-	    		backgroundColor: colors,
-	    	}]
-	    },
-	    options: {
-	    	title: {
-	    		display: true,
-	    		position: 'top',
-	    		text: salesTitle
-	    	},
-	    	legend: {
-	            display: true,
-	            position: 'bottom'
-	        },
-	        animation: {
-	        	duration: 2000
-	        }
-	    }
-	});
-};
-
-$(document).on("click", "#showRating", function() {
-
-		var tb = $("#ratingTable tbody");
-		var newBody = "";
-		// loop to add rows into a table
-		for(var i = 0; i < cars.length; i++)
-		{
-			var row = "<tr>" + 
-						"<td>" + cars[i].brand + "</td>" +
-						"<td>" + cars[i].model + "</td>" +
-						"<td>" + cars[i].color + "</td>" +
-						"<td>" + cars[i].price + "</td>" +
-						"<td>" + rateData[i] + "</td>" +
-					"</tr>";
-			newBody += row;
-		}
-		tb.empty().append(newBody);
+	$(document).on('click', '#test-btn', function(){       
+        var tb = $('#tbProp');
+        newRow = '<tr><td style="text-align: center;vertical-align:middle">' + 'Test11' + '</td> <td style="text-align: center;vertical-align:middle">' + '23.3'+ '</td><td style="text-align: center;vertical-align:middle"><a href="#" data-role="button" data-mini="true">Test22</a></td><td style="text-align: center;vertical-align:middle"><a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-mini="true">Test33</a></td></tr>',
+        newBody = "";
+        for (var i = 0,
+             l = 6; i < l; i += 1) {
+            newBody += newRow;
+        }
+        tb.empty().append(newBody);
         
-        $("#ratingTable").trigger('create')
-});
+        $("#tableProp").trigger('create')
+    });    
 
-$(document).on("click", "#showSales", function() {
-
-	// reset table before add rows
-	$("#salesTable tbody").html("");
+	var salesBody = "";
 
 	// loop to add rows into a table
 	for(var i = 0; i < cars.length; i++)
 	{
-		$("#salesTable tbody").append("<tr>" + 
-											"<td>" + cars[i].brand + "</td>" +
-											"<td>" + cars[i].model + "</td>" +
-											"<td>" + cars[i].color + "</td>" +
-											"<td>" + cars[i].price + "</td>" +
-											"<td>" + salesData[i] + "</td>" +
-										"</tr>"
-										);
+		var row = "<tr>" + 
+					"<td>" + cars[i].brand + "</td>" +
+					"<td>" + cars[i].model + "</td>" +
+					"<td>" + cars[i].price + "</td>" +
+					"<td>" + salesData[i] + "</td>" +
+					"<td>" + cars[i].color + "</td>" +
+				"</tr>";
+		salesBody += row;
 	}
+	$("#salesTable tbody").empty().append(salesBody);
+    
+    $("#salesTable").trigger("create");
+
+
+	var ratingBody = "";
+
+	// loop to add rows into a table
+	for(var i = 0; i < cars.length; i++)
+	{
+		var row = "<tr>" + 
+					"<td>" + cars[i].brand + "</td>" +
+					"<td>" + cars[i].model + "</td>" +
+					"<td>" + cars[i].price + "</td>" +
+					"<td>" + rateData[i] + "</td>" +
+				"</tr>";
+		ratingBody += row;
+	}
+	$("#ratingTable tbody").empty().append(ratingBody);
+    
+    $("#ratingTable").trigger("create");
+};
+
+// add a click event to show sales table
+$(document).on("click", "#showSales", function() {
+
+	$("#salesTable").toggle();
+});
+
+// add a click event to show rating table
+$(document).on("click", "#showRating", function() {
+
+	$("#ratingTable").toggle();
 });

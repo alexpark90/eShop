@@ -17,7 +17,6 @@
 
 	<!-- Styles : Jquery Mobile, my theme, My css -->
     <link href="css/jquery.mobile.css" rel="stylesheet">
-    <link href="css/swiper.min.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
 
     <!-- Scripts : jQuery, Jquery Mobile, My javascript-->
@@ -40,46 +39,43 @@
 
         <!-- contents -->
         <section class="ui-content" role="main">
-
-        <div class="ui-grid-solo">
-            <canvas id="ratingChart" width="50%" height="50%"></canvas>
-        </div>
-        <div class="ui-gird-solo">
-            <canvas id="salesChart" width="50%" height="50%"></canvas>
-        </div>
-        <div class="ui-grid-solo">
-            <table id="ratingTable" data-role="table" data-mode="columntoggle" data-enhanced="true" class="ui-responsive">
-                <thead>
-                    <tr>
-                        <th>Brand</th>
-                        <th data-priority="2">Model</th>
-                        <th data-priority="4">Color</th>
-                        <th data-priority="3">Price</th>
-                        <th data-priority="1">Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <a id="showRating" data-role="button">Show Table</a>
-        </div>
-        <div class="ui-grid-solo">
-            <table id="salesTable" data-role="table" data-mode="columntoggle" data-enhanced="true" class="ui-responsive">
-                <thead>
-                    <tr>
-                        <th>Brand</th>
-                        <th data-priority="2">Model</th>
-                        <th data-priority="4">Color</th>
-                        <th data-priority="3">Price</th>
-                        <th data-priority="1"># of Sold</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <a id="showSales" data-role="button">Show Table</a>
-        </div>
-
+            <div class="ui-grid-solo">
+                <canvas id="salesChart" width="50%;" height="50%;"></canvas>
+            </div>
+            <div class="ui-grid-solo">
+                <table id="salesTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th data-priority="2">Model</th>
+                            <th data-priority="3">Price</th>
+                            <th data-priority="4"># of Sold</th>
+                            <th data-priority="5">Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <a id="showSales" data-role="button">Show Sales Table</a>
+            </div>
+            <div class="ui-gird-solo">
+                <canvas id="ratingChart" width="50%;" height="50%;"></canvas>
+            </div>
+            <div class="ui-grid-solo">
+                <table id="ratingTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Price</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <a id="showRating" data-role="button">Show Rating Table</a>
+            </div>
         </section>
         
         <!-- footer -->
