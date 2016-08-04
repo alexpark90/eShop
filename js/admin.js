@@ -101,18 +101,7 @@ var handleAdmin = function(data) {
 	    }
 	});
 
-	$(document).on('click', '#test-btn', function(){       
-        var tb = $('#tbProp');
-        newRow = '<tr><td style="text-align: center;vertical-align:middle">' + 'Test11' + '</td> <td style="text-align: center;vertical-align:middle">' + '23.3'+ '</td><td style="text-align: center;vertical-align:middle"><a href="#" data-role="button" data-mini="true">Test22</a></td><td style="text-align: center;vertical-align:middle"><a href="#popupLogin" data-rel="popup" data-position-to="window" data-role="button" data-mini="true">Test33</a></td></tr>',
-        newBody = "";
-        for (var i = 0,
-             l = 6; i < l; i += 1) {
-            newBody += newRow;
-        }
-        tb.empty().append(newBody);
-        
-        $("#tableProp").trigger('create')
-    });    
+	////////////// create sales table
 
 	var salesBody = "";
 
@@ -122,9 +111,9 @@ var handleAdmin = function(data) {
 		var row = "<tr>" + 
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
+					"<td>" + cars[i].color + "</td>" +
 					"<td>" + cars[i].price + "</td>" +
 					"<td>" + salesData[i] + "</td>" +
-					"<td>" + cars[i].color + "</td>" +
 				"</tr>";
 		salesBody += row;
 	}
@@ -132,6 +121,8 @@ var handleAdmin = function(data) {
     
     $("#salesTable").trigger("create");
 
+
+    ////////////// create rating table
 
 	var ratingBody = "";
 
@@ -141,6 +132,7 @@ var handleAdmin = function(data) {
 		var row = "<tr>" + 
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
+					"<td>" + cars[i].color + "</td>" +
 					"<td>" + cars[i].price + "</td>" +
 					"<td>" + rateData[i] + "</td>" +
 				"</tr>";
@@ -154,11 +146,29 @@ var handleAdmin = function(data) {
 // add a click event to show sales table
 $(document).on("click", "#showSales", function() {
 
-	$("#salesTable").toggle();
+	if($("#showSales").html() == "Show Sales Table")
+	{
+		$("#salesTable").fadeIn("slow");
+		$("#showSales").html("Hide Sales Table");
+	}
+	else
+	{
+		$("#salesTable").fadeOut("slow");
+		$("#showSales").html("Show Sales Table");	
+	}
 });
 
 // add a click event to show rating table
 $(document).on("click", "#showRating", function() {
 
-	$("#ratingTable").toggle();
+	if($("#showRating").html() == "Show Rating Table")
+	{
+		$("#ratingTable").fadeIn("slow");
+		$("#showRating").html("Hide Rating Table");
+	}
+	else
+	{
+		$("#ratingTable").fadeOut("slow");
+		$("#showRating").html("Show Rating Table");	
+	}
 });
