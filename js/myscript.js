@@ -140,6 +140,7 @@ var handleAdmin = function() {
 		// get values from local storage
 		var rate = localStorage.getItem("eShop_car" + i + "_rate");
 		var sales = localStorage.getItem("eShop_car" + i + "_sale");
+		var colors = [ "#F44336", "#4CAF50", "#9C27B0", "#2196F3" ];
 
 		// assign 0 value if there is no data in local storage
 		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
@@ -153,12 +154,7 @@ var handleAdmin = function() {
 	        labels: carLabels,
 	        datasets: [{
 	            data: rateData,
-	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.8)',
-	                'rgba(3, 169, 244, 0.8)',
-	                'rgba(179, 229, 252, 0.8)',
-	                'rgba(247, 78, 194, 0.8)'
-	            ]
+	            backgroundColor: colors
 	        }]
 	    },
 	    options: {
@@ -189,13 +185,8 @@ var handleAdmin = function() {
 	    data: {
 	    	labels: carLabels,
 	    	datasets: [{
-	    		label: "Sales",
 	    		data: salesData,
-	    		backgroundColor: [
-	                "#F44336",
-	                "#E91E63",
-	                "#9C27B0"
-            	],
+	    		backgroundColor: colors,
 	    	}]
 	    },
 	    options: {
