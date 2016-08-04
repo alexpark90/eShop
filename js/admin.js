@@ -36,8 +36,8 @@ var handleAdmin = function(data) {
 		var rate = localStorage.getItem("eShop_car" + i + "_rate");
 
 		// assign 0 value if there is no data in local storage
-		salesData != 'undefined' ? salesData[i] = sales : salesData[i] = 0;
-		rate != 'undefined' ? rateData[i] = rate : rateData[i] = 0;
+		sales != null ? salesData[i] = sales : salesData[i] = 0;
+		rate != null ? rateData[i] = rate : rateData[i] = 0;
 	}
 
 

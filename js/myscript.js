@@ -23,12 +23,14 @@ $(document).ready(function () {
 	    prevButton: '.swiper-button-prev'
 	});
 
+	/*
 	// temporaty actions to test admin page
 	for(var i = 0; i < 4; i++)
 	{
 		localStorage.setItem("eShop_car" + i + "_rate", i + 2);	
 		localStorage.setItem("eShop_car" + i + "_sale", i + 5);
 	}
+	*/
 });
 
 
