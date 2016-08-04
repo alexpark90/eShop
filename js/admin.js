@@ -70,6 +70,7 @@ var handleAdmin = function(data) {
 	});
 
 	///////// draw a bar chart for ratings 
+	
 	var barChart = new Chart($("#ratingChart"), {
 	    type: 'bar',
 	    animation: true,
