@@ -1,10 +1,11 @@
+
+// global variables
 var cars = [];
 var rateData = [];
 var salesData = [];
 
 $(document).on("pagebeforeshow", "#admin", function() {
 
-	console.log("before show");
 	$.ajax({
 		type : "GET",
 		url : "cars.json",
@@ -13,12 +14,10 @@ $(document).on("pagebeforeshow", "#admin", function() {
 	});
 });
 
-
-
-
+// page event for #admin
 var handleAdmin = function(data) {
 
-	console.log("in here");
+	// get cars array
 	cars = data.cars;
 
 	var rateTitle = "Average Rating";
