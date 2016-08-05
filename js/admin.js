@@ -17,6 +17,12 @@ $(document).on("pagebeforeshow", "#admin", function() {
 // page event for #admin
 var handleAdmin = function(data) {
 
+	if(!(window.localStorage))
+	{
+		alert("[Error] localStorage is not supported!");
+		return;
+	}
+
 	// get cars array
 	var cars = data.cars;
 

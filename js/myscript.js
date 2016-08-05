@@ -148,12 +148,14 @@ $(document).on("click", ".swiper-slide >a", function() {
 // add click event for buy button in detail page
 $(document).on("click", "#buy", function() {
 
+	if(!(window.localStorage))
+	{
+		alert("[Error] localStorage is not supported!");
+		return;
+	}
+
 	// retrieve quantity a user selected
 	var quantity = parseInt(getQuantity());
-
-	if( isNaN(quantity)) {
-		quantity = 1;
-	}
 
 	// retrieve car id selected
 	var carId = getCarId();
@@ -184,6 +186,12 @@ $(document).on("click", "#buy", function() {
 // add change event for rating input buttons in detail page
 $(document).on("change", "#rate input", function() {
 
+	if(!(window.localStorage))
+	{
+		alert("[Error] localStorage is not supported!");
+		return;
+	}
+	
 	// retrieve value from rate radio choices
 	var rate = parseInt( $('input[name=radio-choice-t-6]:checked', '#rate').val());
 
