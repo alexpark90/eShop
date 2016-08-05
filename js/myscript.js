@@ -22,15 +22,6 @@ $(document).ready(function () {
 	    nextButton: '.swiper-button-next',
 	    prevButton: '.swiper-button-prev'
 	});
-
-	
-	// temporaty actions to test admin page
-	for(var i = 0; i < 4; i++)
-	{
-		localStorage.setItem("eShop_car" + i + "_rate", i + 2);	
-		localStorage.setItem("eShop_car" + i + "_sale", i + 5);
-	}
-	
 });
 
 
@@ -56,12 +47,18 @@ $(document).on("pagebeforeshow", "#home", function() {
 	});
 });
 
+// page envet for #carDetail
+$(document).on("pagebeforeshow", "#carDetail", function() {
+
+	handleDetailPage();
+});
 
 
-
+// function to handle main page
 var handleMain = function(data) {
 
 	// get cars array
+	// and assign it into a global variable
 	cars = data.cars;
 	
 	// remove all slide before adding
@@ -94,25 +91,121 @@ var handleMain = function(data) {
 		// refresh the list
 		$(".car-list").listview("refresh");
 	}
+
+	// add footer info
+	$('[data-role="footer"]').empty().append('<p>Project by: Alex Yeji Park and Laura Martinez</p>' +
+		'<p>Mobile Web-Based Application Development</p>');
+};
+
+
+// function to handle detail page
+var handleDetailPage = function() {
+
+	// local variables to retrieve car data
+	var carId = getCarId();
+	var car = cars[carId];
+
+	// add photo to car detail
+	$(".photo").append(
+		"<img src='img/eCar" + carId + ".png' />"
+	);
+
+	// call formatCurrency function
+	formatCurrency();
+
+	// add car spec to collapsible
+	$("#specs").html(car.spec);
+};
+
+
+// function to handle error on calling json
+var handleError = function(error) {
+	
+	alert("Error occured! " + error.state + " - " + error.statusText);
 };
 
 
 
-// add click event for all li under .car-list
+////////////////////////// events ////////////////////////////
+
+// add click event for all li under .car-list in main page
 $(document).on("click", ".car-list >li", function() {
 
 	var id = $(this).closest("li").attr("li-id");
 	setCarId(id);
 });
 
-// add click event for all slide image
+// add click event for all slide image in main page
 $(document).on("click", ".swiper-slide >a", function() {
 
 	var id = $(this).closest("a").attr("id").charAt(3);
 	setCarId(id);
 });
 
-// add a form submit event to login as an admin
+// add click event for buy button in detail page
+$(document).on("click", "#buy", function() {
+
+	// retrieve quantity a user selected
+	var quantity = parseInt(getQuantity());
+
+	if( isNaN(quantity)) {
+		quantity = 1;
+	}
+
+	// retrieve car id selected
+	var carId = getCarId();
+
+	//Retrieve local storage for sale of cars
+	var localStorageCarSale = localStorage.getItem('eShop_car' + carId + '_sale');
+
+
+	// check if corresponding localstorage data exists 
+	// if it does not, set initial value as 0 (none sold yet)
+	if( localStorageCarSale == 'undefined' || localStorageCarSale == null ){
+		localStorage.setItem('eShop_car' + carId + '_sale', 0);
+	}
+
+	var currentQuantity = parseInt(localStorageCarSale);
+	var totalQuantity = currentQuantity + quantity;
+
+	// set local storage with calculated total quantity
+	localStorage.setItem('eShop_car' + carId + '_sale', totalQuantity);
+
+    alert("You succesfully bought  in Car eShop");
+
+   	// redirect to main page
+   	window.location.href="./index.html";
+});
+
+
+// add change event for rating input buttons in detail page
+$(document).on("change", "#rate input", function() {
+
+	// retrieve value from rate radio choices
+	var rate = parseInt( $('input[name=radio-choice-t-6]:checked', '#rate').val());
+
+	// local variable to retrieve car data
+	var carId = getCarId();
+
+
+    var localStorageCarRate = localStorage.getItem('eShop_car' + carId + '_rate');
+
+	// check if corresponding localstorage data exists 
+	// if it does not, set initial value with rate
+	// or if it does exist, sum rate with existing rate and assign average rate
+	if( localStorageCarRate == 'undefined' || localStorageCarRate == null) {
+         localStorage.setItem('eShop_car' + carId + '_rate', rate);
+
+	}else{
+        var parseRate = parseInt(localStorage.getItem('eShop_car' + carId + '_rate'));
+		var calculateRate = ( parseRate + rate) / 2;
+
+		localStorage.setItem('eShop_car' + carId + '_rate', calculateRate);
+	}
+});
+
+
+// add a form submit event to login as an admin on login dialog
 $(document).on("submit", "form", function() {
 
 	// if correct credentials are provided
@@ -129,6 +222,9 @@ $(document).on("submit", "form", function() {
 	return false;
 });
 
+
+/////////////////// global functions ///////////////////
+
 // function to set car id
 var setCarId = function(id) {
 	
@@ -142,9 +238,26 @@ var getCarId = function() {
 	return value;
 };
 
-// function to handle error on calling json
-var handleError = function(error) {
-	
-	alert("Error occured! " + error.state + " - " + error.statusText);
+
+//function to get quantity
+var getQuantity = function(){
+
+	var quantity = $('#number-3').val();
+	return quantity;
+};
+
+// function to format price
+var formatCurrency = function() {
+
+	// local variables to retrieve car data
+	var carNum = getCarId();
+	var car = cars[carNum];
+	var carPrice = parseInt(car.price);
+
+	var carFormat = carPrice.toLocaleString("en");
+
+	// add price to div price tag
+	$("#price").append("$ " + carFormat);
+
 };
 
