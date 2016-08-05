@@ -145,59 +145,28 @@ $(document).on("click", ".swiper-slide >a", function() {
 	setCarId(id);
 });
 
-// add click event for buy button in detail page
-$(document).on("click", "#buy", function() {
+
+// add a form submit event to buy a car in detail page
+$(document).on("submit", "#buyForm", function() {
 
 	if(!(window.localStorage))
 	{
 		alert("[Error] localStorage is not supported!");
 		return;
 	}
-
-	// retrieve quantity a user selected
-	var quantity = parseInt(getQuantity());
 
 	// retrieve car id selected
 	var carId = getCarId();
 
-	//Retrieve local storage for sale of cars
-	var localStorageCarSale = localStorage.getItem('eShop_car' + carId + '_sale');
+	// retrieve values from user inputs
+	var rate = parseInt($('input[name="radio-choice-t-6"]:checked', '#buyForm').val());
+	var quantity = parseInt(getQuantity());
 
-
-	// check if corresponding localstorage data exists 
-	// if it does not, set initial value as 0 (none sold yet)
-	if( localStorageCarSale == 'undefined' || localStorageCarSale == null ){
-		localStorage.setItem('eShop_car' + carId + '_sale', 0);
+	// validate user inputs
+	if(rate == NaN || quantity == NaN || rate < 0 || rate > 5 || quantity < 0 || quantity > 100) {
+		// show error message
+		$("#buyError").html("Please enter valid number!").css("color", "red");
 	}
-
-	var currentQuantity = parseInt(localStorageCarSale);
-	var totalQuantity = currentQuantity + quantity;
-
-	// set local storage with calculated total quantity
-	localStorage.setItem('eShop_car' + carId + '_sale', totalQuantity);
-
-    alert("You succesfully bought  in Car eShop");
-
-   	// redirect to main page
-   	window.location.href="./index.html";
-});
-
-
-// add change event for rating input buttons in detail page
-$(document).on("change", "#rate input", function() {
-
-	if(!(window.localStorage))
-	{
-		alert("[Error] localStorage is not supported!");
-		return;
-	}
-	
-	// retrieve value from rate radio choices
-	var rate = parseInt( $('input[name=radio-choice-t-6]:checked', '#rate').val());
-
-	// local variable to retrieve car data
-	var carId = getCarId();
-
 
     var localStorageCarRate = localStorage.getItem('eShop_car' + carId + '_rate');
 
@@ -213,7 +182,30 @@ $(document).on("change", "#rate input", function() {
 
 		localStorage.setItem('eShop_car' + carId + '_rate', calculateRate);
 	}
+
+	//Retrieve local storage for sale of cars
+	var localStorageCarSale = localStorage.getItem('eShop_car' + carId + '_sale');
+
+	// check if corresponding localstorage data exists 
+	// if it does not, set initial value as 0 (none sold yet)
+	if( localStorageCarSale == 'undefined' || localStorageCarSale == null ){
+		localStorage.setItem('eShop_car' + carId + '_sale', 0);
+	}
+
+	var currentQuantity = parseInt(localStorageCarSale);
+	var totalQuantity = currentQuantity + quantity;
+
+	// set local storage with calculated total quantity
+	localStorage.setItem('eShop_car' + carId + '_sale', totalQuantity);
+
+    alert("You succesfully bought in Car eShop");
+
+   	// redirect to main page
+   	window.location.href="./index.html";
+
+   	return false;
 });
+
 
 
 // add a form submit event to login as an admin on login dialog
@@ -228,7 +220,7 @@ $(document).on("submit", "#loginForm", function() {
 	else
 	{
 		// show error message
-		$("#error").html("Incorrect ID or Password!").css("color", "red");
+		$("#loginError").html("Incorrect ID or Password!").css("color", "red");
 	}
 	return false;
 });
@@ -254,7 +246,7 @@ var getCarId = function() {
 //function to get quantity
 var getQuantity = function(){
 
-	var quantity = $('#number-3').val();
+	var quantity = $('#quantity').val();
 	return quantity;
 };
 
