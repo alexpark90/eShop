@@ -8,9 +8,9 @@
 /**** Custom Icon *****/
 
 .ui-icon-user:after {
-    background-image: url(../img/user.svg) 50% 50%;
+    background-image: url(../img/user.svg) 30% 30%;
     /* Make your icon fit */
-    background-size: 16px 16px;
+    background-size: 15px 15px;
 }
 
 
@@ -24,7 +24,8 @@ body, html {
 
 
 header {
-	height: 50px;
+	height: auto;
+    font-size: 130%;
 }
 
 footer {
@@ -40,7 +41,7 @@ img {
 
 a {
 	text-decoration: none;
-	padding: 5px !important;
+	padding: 2px !important;
 	text-align: center !important
 }
 
@@ -83,7 +84,7 @@ a {
 }
 
 #price{
-    text-align: center;
     font-weight: bold;
     font-size: 150%;
+    color: #00a99d;
 }
