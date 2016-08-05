@@ -1,6 +1,6 @@
 /**
  * 	Name: Alex Yeji Park, Laura Martinez
- *  Date: 
+ *  Date: Aug. 05. 2016
  *	This is the main javascript for eShop
  */
 
@@ -125,7 +125,7 @@ var handleError = function(error) {
 };
 
 
-
+//////////////////////////////////////////////////////////////
 ////////////////////////// events ////////////////////////////
 
 // add click event for all li under .car-list in main page
@@ -223,7 +223,8 @@ $(document).on("submit", "form", function() {
 });
 
 
-/////////////////// global functions ///////////////////
+/////////////////////////////////////////////////////////////
+///////////////////// global functions //////////////////////
 
 // function to set car id
 var setCarId = function(id) {

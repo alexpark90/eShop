@@ -1,3 +1,8 @@
+/**
+ * 	Name: Alex Yeji Park, Laura Martinez
+ *  Date: Aug. 05. 2016
+ *	This is the javascript for admin page
+ */
 
 // global variables
 var cars = [];
@@ -144,6 +149,11 @@ var handleAdmin = function(data) {
     
     $("#ratingTable").trigger("create");
 };
+
+
+///////////////////////////////////////////////////////////////////////
+/////////////////////////// events ////////////////////////////////////
+
 
 // add a click event to show sales table
 $(document).on("click", "#showSales", function() {

@@ -42,16 +42,16 @@
 
         <!-- contents -->
         <section class="ui-content" role="main">
-
-            <!-- Slider main container -->
+            <!-- slider main container -->
             <div class="swiper-container">
-                <!-- Additional required wrapper -->
+                <!-- additional required wrapper -->
                 <div class="swiper-wrapper">
+                    <!-- slides will be added here -->
                 </div>
-                <!-- If we need pagination -->
+                <!-- pagination -->
                 <div class="swiper-pagination"></div>
                 
-                <!-- If we need navigation buttons -->
+                <!-- navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>                
             </div>
@@ -76,14 +76,63 @@
     <!-- carDetail page -->
     <div data-role="page" id="carDetail" data-theme="a">
         
+        
         <!-- header -->
         <header data-role="header">
-            <h1 class="ui-title">This is header</h1>
+            <a href="#home" data-transition="flow"
+               class="ui-btn ui-icon-back ui-corner-all ui-btn-icon-notext" ></a>
+            <h1 class="ui-title">Car Details</h1>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
-            This is content 
+            <!-- photo -->
+            <div class="photo"></div>
+
+            <!-- rate-->
+            <div class="center">
+                <form class="rateCar" id="rate">
+                    <fieldset data-role="controlgroup" data-theme="b" data-type="horizontal">
+                        <legend>Rate:</legend>
+                        <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6a" value="1" checked="checked">
+                        <label for="radio-choice-t-6a">1</label>
+                        <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6b" value="2">
+                        <label for="radio-choice-t-6b">2</label>
+                        <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6c" value="3">
+                        <label for="radio-choice-t-6c">3</label>
+                        <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6d" value="4">
+                        <label for="radio-choice-t-6d">4</label>
+                        <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6e" value="5">
+                        <label for="radio-choice-t-6e">5</label>
+                    </fieldset>
+                </form>
+            </div>
+            <br>
+
+            <!-- quantity-->
+            <div class="center">
+                <form>
+                    <label for="number-3">Quantity:</label>
+                    <input type="number" data-clear-btn="false" name="number-3" pattern="[0-9]*" 
+                            id="number-3" value="" min="0">
+                </form>
+            </div>
+            <br>
+
+            <!-- collapsible spec -->
+            <div data-role="collapsible" id="set">
+                <h1>Specs</h1>
+                <p id="specs"></p>
+            </div>
+            <br>
+
+            <!-- price -->
+            <div id="price">Price:</div>
+            
+            <!-- buy button -->
+            <div class="button-wrap">
+                <button id="buy" class="ui-shadow ui-btn ui-corner-all">BUY</button>
+            </div>
         </section>
         
         <!-- footer -->
