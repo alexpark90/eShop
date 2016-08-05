@@ -35,7 +35,9 @@
 
         <!-- header -->
         <header data-role="header">
-            <h1 class="ui-title">This is header</h1>
+            <h1>This is Header</h1>
+            <a href="#popup" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"
+                data-rel="dialog" data-transition="pop"></a>
         </header>
 
         <!-- contents -->
@@ -51,14 +53,21 @@
                 
                 <!-- navigation buttons -->
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                
+                <div class="swiper-button-next"></div>                
             </div>
+
+            <!-- List of products -->
+            <div class="list-container">
+                <p><b>All Products: </b></p>
+                <ul class="car-list" data-role="listview" data-inset="true" data-filter="true" data-icon="false">
+                </ul>
+            </div>
+
         </section>
         
         <!-- footer -->
         <footer data-role="footer">
-            This is footer
+            <p>Footer here</p>
         </footer>
     </div>
     <!-- end of home page -->
@@ -124,7 +133,6 @@
             <div class="button-wrap">
                 <button id="buy" class="ui-shadow ui-btn ui-corner-all">BUY</button>
             </div>
-
         </section>
         
         <!-- footer -->
@@ -134,5 +142,26 @@
     </div>
     <!-- end of carDetail page -->
 
+    <!-- Popup for login as an admin -->
+    <div data-role="page" id="popup" data-close-btn="right" data-theme="a">
+        <header data-role="header">
+            <h1>Admin Only</h1>
+        </header>
+
+        <div class="ui-content" role="main">
+            <form>
+                <label for="id">Enter Id:</label><input type="text" id="id" required>
+                <label for="pwd">Enter Password:</label><input type="password" id="pwd" required>
+                <br />
+                <p id="error"></p>
+                <div class="ui-grid-a">
+                    <button type="submit" class="ui-btn ui-block-a ui-corner-all">Login</button>
+                    <a href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</a>
+                </div>
+            </form>      
+            <br />
+        </div>
+    </div>
+    <!-- end of popup -->
 </body>
 </html>

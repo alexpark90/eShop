@@ -4,6 +4,14 @@
   [
       {
         "id" : "eCar0",
+        "brand" : "Benz",
+        "model" : "Coupe", 
+        "color" : "grey" ,
+        "spec" : "Trunk capacity12.3 cu ftTransmission type7-speed automaticEngine4.7L biturbo gasoline V-8Power449 hp @ 5,250-5,550 rpmAcceleration, 0-60 mph4.8 secCity fuel economy17 mpgHighway fuel economy26 mpg",
+        "price" : "121550"
+      },
+      {
+        "id" : "eCar1",
         "brand" : "Tesla",
         "model" : "S", 
         "color" : "black" ,
@@ -11,17 +19,9 @@
         "price" : "72700"
       },
       {
-        "id" : "eCar1",
-        "brand" : "Mercedes-Benz",
-        "model" : "S-Class Coupe", 
-        "color" : "grey" ,
-        "spec" : "Trunk capacity12.3 cu ftTransmission type7-speed automaticEngine4.7L biturbo gasoline V-8Power449 hp @ 5,250-5,550 rpmAcceleration, 0-60 mph4.8 secCity fuel economy17 mpgHighway fuel economy26 mpg",
-        "price" : "121550"
-      },
-      {
         "id" : "eCar2",
         "brand" : "Jeep", 
-        "model" : "Renegade", 
+        "model" : "Wrangler", 
         "color" : "red",
         "spec" : "Engine TypeTurbocharged and intercooled inline-4 Displacement1.4 L/83 Fuel DeliveryPort injection Horsepower @ RPM160 @ 5500Torque @ RPM184 @ 2500",
         "price" : "21495"
