@@ -209,7 +209,7 @@ $(document).on("change", "#rate input", function() {
 
 
 // add a form submit event to login as an admin on login dialog
-$(document).on("submit", "form", function() {
+$(document).on("submit", "#loginForm", function() {
 
 	// if correct credentials are provided
 	if($("#id").val() == admin.id && $("#pwd").val() == admin.password)
