@@ -153,6 +153,12 @@ var handleAdmin = function(data) {
 	$("#ratingTable tbody").empty().append(ratingBody);
     
     $("#ratingTable").trigger("create");
+
+
+	// add footer info
+	$('[data-role="footer"]').empty().append('<p>Project by: Alex Yeji Park and Laura Martinez</p>' +
+											'<p>Student #: 991 359 057, 991 376 790</p>'
+											);
 };
 
 
