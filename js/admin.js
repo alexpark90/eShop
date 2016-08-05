@@ -4,11 +4,6 @@
  *	This is the javascript for admin page
  */
 
-// global variables
-var cars = [];
-var salesData = [];
-var rateData = [];
-
 $(document).on("pagebeforeshow", "#admin", function() {
 
 	$.ajax({
@@ -23,14 +18,18 @@ $(document).on("pagebeforeshow", "#admin", function() {
 var handleAdmin = function(data) {
 
 	// get cars array
-	cars = data.cars;
+	var cars = data.cars;
 
+	// initialize variables to draw chart
 	var salesTitle = "Car Sales";
 	var rateTitle = "Average Rating";
 	var colors = [ "#F44336", "#4CAF50", "#9C27B0", "#2196F3" ];
 	var carLabels = [];
+	var salesData = [];
+	var rateData = [];
 
-	// loop to set labels and data for graphs
+
+	// loop to set labels and data for charts
 	for(var i = 0; i < cars.length; i++)
 	{
 		// set names of cars as for labels
@@ -119,7 +118,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
+					"<td>" + "$ " + formatCurrency(cars[i].price) + "</td>" +
 					"<td>" + salesData[i] + "</td>" +
 				"</tr>";
 		salesBody += row;
@@ -140,7 +139,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
+					"<td>" + "$ " + formatCurrency(cars[i].price) + "</td>" +
 					"<td>" + rateData[i] + "</td>" +
 				"</tr>";
 		ratingBody += row;
@@ -184,3 +183,12 @@ $(document).on("click", "#showRating", function() {
 		$("#showRating").html("Show Rating Table");	
 	}
 });
+
+// function to format price
+// it take an number as a parameter
+var formatCurrency = function(price) {
+
+	var origPrice = parseInt(price);
+	var formatted = origPrice.toLocaleString("en");
+	return formatted;
+};
