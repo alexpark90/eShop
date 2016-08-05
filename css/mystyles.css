@@ -75,18 +75,15 @@ a {
 	width: 100% !important;
 	margin-bottom: 5px;
 }
-<<<<<<< HEAD
+
+/***** for detailPage *****/
+
+#carDetail {
+    text-align: center;
+}
 
 #price{
     text-align: center;
     font-weight: bold;
-    font-size: 200%;
-
+    font-size: 150%;
 }
-
-.center{
-    text-align: center;
-
-}
-=======
->>>>>>> 76f63c183dc67c4257f7d1ea9291a4e0bb543964
