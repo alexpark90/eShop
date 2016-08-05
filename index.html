@@ -36,7 +36,8 @@
         <!-- header -->
         <header data-role="header">
             <h1>This is Header</h1>
-            <a href="#" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <a href="#popup" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"
+                data-rel="dialog" data-transition="pop"></a>
         </header>
 
         <!-- contents -->
@@ -92,5 +93,26 @@
     </div>
     <!-- end of carDetail page -->
 
+    <!-- Popup for login as an admin -->
+    <div data-role="page" id="popup" data-close-btn="right" data-theme="a">
+        <header data-role="header">
+            <h1>Admin Only</h1>
+        </header>
+
+        <div class="ui-content" role="main">
+            <form>
+                <label for="id">Enter Id:</label><input type="text" id="id" required>
+                <label for="pwd">Enter Password:</label><input type="password" id="pwd" required>
+                <br />
+                <p id="error"></p>
+                <div class="ui-grid-a">
+                    <button type="submit" class="ui-btn ui-block-a ui-corner-all">Login</button>
+                    <a href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</a>
+                </div>
+            </form>      
+            <br />
+        </div>
+    </div>
+    <!-- end of popup -->
 </body>
 </html>

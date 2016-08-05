@@ -8,6 +8,7 @@
 var mySwiper;
 var cars;
 var carId;
+var admin;
 
 
 $(document).ready(function () {
@@ -21,6 +22,15 @@ $(document).ready(function () {
 	    nextButton: '.swiper-button-next',
 	    prevButton: '.swiper-button-prev'
 	});
+
+	
+	// temporaty actions to test admin page
+	for(var i = 0; i < 4; i++)
+	{
+		localStorage.setItem("eShop_car" + i + "_rate", i + 2);	
+		localStorage.setItem("eShop_car" + i + "_sale", i + 5);
+	}
+	
 });
 
 
@@ -34,7 +44,20 @@ $(document).on("pagebeforeshow", "#home", function() {
 		success : handleMain,
 		error : handleError
 	});
+
+	$.ajax({
+		type : "GET",
+		url : "users.json",
+		dataType : "json",
+		success : function(data){
+			admin = data.admin;
+		},
+		error : handleError
+	});
 });
+
+
+
 
 var handleMain = function(data) {
 
@@ -43,6 +66,9 @@ var handleMain = function(data) {
 	
 	// remove all slide before adding
 	mySwiper.removeAllSlides();
+
+	// reset car-list before adding
+	$(".car-list").html("");
 
 	// loop through all car in the array
 	for(var i = 0; i < cars.length; i++)
@@ -86,6 +112,22 @@ $(document).on("click", ".swiper-slide >a", function() {
 	setCarId(id);
 });
 
+// add a form submit event to login as an admin
+$(document).on("submit", "form", function() {
+
+	// if correct credentials are provided
+	if($("#id").val() == admin.id && $("#pwd").val() == admin.password)
+	{
+		// go to admin page
+		$(location).attr("href", "./admin.html");
+	}
+	else
+	{
+		// show error message
+		$("#error").html("Incorrect ID or Password!").css("color", "red");
+	}
+	return false;
+});
 
 // function to set car id
 var setCarId = function(id) {
@@ -105,3 +147,4 @@ var handleError = function(error) {
 	
 	alert("Error occured! " + error.state + " - " + error.statusText);
 };
+
