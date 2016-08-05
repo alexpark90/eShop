@@ -106,12 +106,15 @@ var handleDetailPage = function() {
 	var car = cars[carId];
 
 	// add photo to car detail
-	$(".photo").append(
+	$(".photo").empty().append(
 		"<img src='img/eCar" + carId + ".png' />"
 	);
 
-	// call formatCurrency function
-	formatCurrency();
+	// get formatted price using formatCurrency function
+	var priceFormat = formatCurrency(car.price);
+
+	// add formatted price to div price tag
+	$("#price").empty().append("$ " + priceFormat);
 
 	// add car spec to collapsible
 	$("#specs").html(car.spec);
@@ -248,17 +251,11 @@ var getQuantity = function(){
 };
 
 // function to format price
-var formatCurrency = function() {
+// it take an number as a parameter
+var formatCurrency = function(price) {
 
-	// local variables to retrieve car data
-	var carNum = getCarId();
-	var car = cars[carNum];
-	var carPrice = parseInt(car.price);
-
-	var carFormat = carPrice.toLocaleString("en");
-
-	// add price to div price tag
-	$("#price").append("$ " + carFormat);
-
+	var origPrice = parseInt(price);
+	var formatted = origPrice.toLocaleString("en");
+	return formatted;
 };
 
