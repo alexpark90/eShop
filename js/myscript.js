@@ -163,6 +163,7 @@ $(document).on("submit", "#buyForm", function() {
 	var rate = parseInt($('input[name="radio-choice-t-6"]:checked', '#buyForm').val());
 	var quantity = parseInt(getQuantity());
 
+
 	// validate user inputs
 	if(rate == NaN || quantity == NaN || rate < 0 || rate > 5 || quantity < 0 || quantity > 100) {
 		// show error message
@@ -193,7 +194,7 @@ $(document).on("submit", "#buyForm", function() {
 		localStorage.setItem('eShop_car' + carId + '_sale', 0);
 	}
 
-	var currentQuantity = parseInt(localStorageCarSale);
+	var currentQuantity = parseInt(localStorage.getItem('eShop_car' + carId + '_sale'));
 	var totalQuantity = currentQuantity + quantity;
 
 	// set local storage with calculated total quantity
