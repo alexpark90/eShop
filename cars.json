@@ -1,0 +1,38 @@
+
+{
+  "cars":  
+  [
+      {
+        "id" : "eCar0",
+        "brand" : "Benz",
+        "model" : "Coupe", 
+        "color" : "grey" ,
+        "spec" : "Trunk capacity12.3 cu ftTransmission type7-speed automaticEngine4.7L biturbo gasoline V-8Power449 hp @ 5,250-5,550 rpmAcceleration, 0-60 mph4.8 secCity fuel economy17 mpgHighway fuel economy26 mpg",
+        "price" : "121550"
+      },
+      {
+        "id" : "eCar1",
+        "brand" : "Tesla",
+        "model" : "S", 
+        "color" : "black" ,
+        "spec" : "Charging Free long distance travel using Tesla's Supercharger network Mobile connector with 110 volt, 240 volt, and J1772 adapters", 
+        "price" : "72700"
+      },
+      {
+        "id" : "eCar2",
+        "brand" : "Jeep", 
+        "model" : "Wrangler", 
+        "color" : "red",
+        "spec" : "Engine TypeTurbocharged and intercooled inline-4 Displacement1.4 L/83 Fuel DeliveryPort injection Horsepower @ RPM160 @ 5500Torque @ RPM184 @ 2500",
+        "price" : "21495"
+      },
+      {
+        "id" : "eCar3",
+        "brand": "BMW",
+        "model" : "X6",
+        "color" : "white",
+        "spec" : "Engine TypeInline-4 Displacement2.0 L/122 Fuel DeliveryPort injection Horsepower @ RPM158 @ 6400Torque @ RPM141 @ 5000",
+        "price" : "69700"
+      }
+  ]
+}

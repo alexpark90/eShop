@@ -1,14 +1,97 @@
 /*
  * Author : Alex Yeji Park, Laura Martinez
- * Date : 
+ * Date : Aug. 05. 2016
  * 
  */
 
 
-body {
+/**** custom icon *****/
+
+.ui-icon-user:after {
+    background-image: url(../img/user.svg) 30% 30%;
+    /* Make your icon fit */
+    background-size: 15px 15px;
+}
+
+
+
+/***** for all pages *****/
+
+body, html {
+	height: 100%;
     font-size: 12px;
+}
+
+
+header {
+    font-size: 130%;
 }
 
 footer {
     text-align: center;
+}
+
+img {
+	display: block;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	padding: 2px !important;
+	text-align: center !important
+}
+
+
+/***** for homePage *****/
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    border-bottom: solid lightgrey 5px;
+} 
+
+
+.list-container ul {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100% !important;
+	box-shadow: none;
+}
+
+.list-container li {
+	width: 44% !important;
+    margin: 3% !important;
+    float: left;
+    border: 1px solid #ccc !important;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 0 0 !important;
+}
+
+.list-container li img {
+	position: relative !important;
+	width: 100% !important;
+	margin-bottom: 5px;
+}
+
+/***** for detailPage *****/
+
+#carDetail {
+    text-align: center;
+}
+
+#price{
+    font-weight: bold;
+    font-size: 150%;
+    color: #00a99d;
+}
+
+
+/***** for login dialog *****/
+
+#loginForm .ui-btn {
+    padding: 2%;
 }

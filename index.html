@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <!--
     Name:  Alex Yeji Park, Laura Martinez
-    Student #: 991 359 057, 
+    Student #: 991 359 057, 991 376 790
     Assignment:  eShop Project
-    Date: 
+    Date: Aug. 05. 2016
 -->
 
 <html lang="en">
@@ -17,56 +17,143 @@
 
 	<!-- Styles : Jquery Mobile, my theme, My css -->
     <link href="css/jquery.mobile.css" rel="stylesheet">
+    <link href="css/swiper.min.css" rel="stylesheet">
+    <link href="css/eShopTheme.min.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
 
     <!-- Scripts : jQuery, Jquery Mobile, My javascript-->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.mobile.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
 	<script src="js/myscript.js"></script>
 
 </head>
 
 <body>
     <!-- Home page -->
-    <div data-role="page" id="home" data-theme="a">
+    <div data-role="page" id="home" data-theme="c">
 
         <!-- header -->
         <header data-role="header">
-            <h1 class="ui-title">This is header</h1>
+            <h1>Welcome to eShop</h1>
+            <a href="#popup" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"
+                data-rel="dialog" data-transition="pop"></a>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
-            This is content
+            <!-- slider main container -->
+            <div class="swiper-container">
+                <!-- additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- slides will be added here -->
+                </div>
+                <!-- pagination -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>                
+            </div>
+
+            <!-- List of products -->
+            <div class="list-container">
+                <p><b>All Products: </b></p>
+                <ul class="car-list" data-role="listview" data-inset="true" data-filter="true" data-icon="false">
+                </ul>
+            </div>
+
         </section>
         
         <!-- footer -->
         <footer data-role="footer">
-            This is footer
         </footer>
     </div>
     <!-- end of home page -->
 
 
     <!-- carDetail page -->
-    <div data-role="page" id="carDetail" data-theme="a">
+    <div data-role="page" id="carDetail" data-theme="c">
         
         <!-- header -->
         <header data-role="header">
-            <h1 class="ui-title">This is header</h1>
+            <a href="#home" data-transition="flow"
+               class="ui-btn ui-icon-back ui-corner-all ui-btn-icon-notext"></a>
+            <h1 class="ui-title">Car Details</h1>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
-            This is content
+            <!-- photo -->
+            <div class="photo ui-gird-solo"></div>
+
+            <form id="buyForm">
+                <!-- rate-->
+                <fieldset data-role="controlgroup" data-theme="b" data-type="horizontal">
+                    <h2>Select Rate:</h2>
+                    <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6a" value="1" checked="checked">
+                    <label for="radio-choice-t-6a">1</label>
+                    <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6b" value="2">
+                    <label for="radio-choice-t-6b">2</label>
+                    <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6c" value="3">
+                    <label for="radio-choice-t-6c">3</label>
+                    <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6d" value="4">
+                    <label for="radio-choice-t-6d">4</label>
+                    <input type="radio" name="radio-choice-t-6" id="radio-choice-t-6e" value="5">
+                    <label for="radio-choice-t-6e">5</label>
+                </fieldset>
+                <br>
+                <!-- quantity-->
+                <div class="ui-grid-solo">    
+                    <h2>Quantity:</h2>
+                    <input type="number" id="quantity" min="1" max="100" value="1" required>
+                </div>
+                <br>
+                <!-- collapsible spec -->
+                <div data-role="collapsible" id="set" class="ui-grid-solo">
+                    <h2>Specs</h2>
+                    <p id="specs"></p>
+                </div>
+                <br>
+                <!-- price -->
+                <div id="price" class="ui-grid-solo">Price:</div>
+                <!-- Error message-->
+                <p id="buyError"></p>
+                <!-- buy button -->
+                <div class="button-wrap ui-grid-solo">
+                    <button type="submit" class="ui-shadow ui-btn ui-corner-all">BUY</button>
+                </div>
+            </form> 
         </section>
         
         <!-- footer -->
         <footer data-role="footer">
-            This is footer    
         </footer>
     </div>
     <!-- end of carDetail page -->
 
+    <!-- Popup for login as an admin -->
+    <div data-role="page" id="popup" data-close-btn="right" data-theme="c">
+        <header data-role="header">
+            <h1>Admin Only</h1>
+        </header>
+
+        <div class="ui-content" role="main">
+            <form id="loginForm">
+                <label for="id">Enter Id:</label><input type="text" id="id" required>
+                <label for="pwd">Enter Password:</label><input type="password" id="pwd" required>
+                <br />
+                <!-- Error Message -->
+                <p id="loginError"></p>
+                <div class="ui-grid-a">
+                    <button type="submit" class="ui-btn ui-block-a ui-corner-all">Login</button>
+                    <button href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</button>
+                </div>
+            </form>      
+            <br />
+        </div>
+    </div>l
+    <!-- end of popup -->
 </body>
 </html>

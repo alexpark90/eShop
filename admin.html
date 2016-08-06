@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+    Name:  Alex Yeji Park, Laura Martinez
+    Student #: 991 359 057, 991 376 790
+    Assignment:  eShop Project
+    Date: Aug. 05. 2016
+-->
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>eShop</title>
+
+	<!-- Styles : Jquery Mobile, my theme, My css -->
+    <link href="css/jquery.mobile.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+    <!-- Scripts : jQuery, Jquery Mobile, My javascript-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script src="js/Chart.min.js"></script>
+	<script src="js/admin.js"></script>
+
+</head>
+
+<body>
+    <!-- Admin page -->
+    <div data-role="page" id="admin" data-theme="a">
+
+        <!-- header -->
+        <header data-role="header">
+            <h1>Admin Dashboard</h1>
+            <a href="" data-rel="back" class="ui-btn ui-btn-right ui-corner-all">Logout</a>
+        </header>
+
+        <!-- contents -->
+        <section class="ui-content" role="main">
+            <div class="ui-grid-solo">
+                <canvas id="salesChart" width="50%;" height="30%;"></canvas>
+            </div>
+            <div class="ui-grid-solo">
+                <table id="salesTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive"
+                        style="display: none">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th data-priority="3">Model</th>
+                            <th data-priority="5">Color</th>
+                            <th data-priority="4">Price</th>
+                            <th data-priority="2"># Sold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <a id="showSales" data-role="button">Show Sales Table</a>
+            </div>
+            <div class="ui-gird-solo">
+                <canvas id="ratingChart" width="35%;" height="20%;"></canvas>
+            </div>
+            <div class="ui-grid-solo">
+                <table id="ratingTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive"
+                        style="display: none">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th data-priority="3">Model</th>
+                            <th data-priority="5">Color</th>
+                            <th data-priority="4">Price</th>
+                            <th data-priority="2">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <a id="showRating" data-role="button">Show Rating Table</a>
+            </div>
+        </section>
+        
+        <!-- footer -->
+        <footer data-role="footer">
+            <p>Footer here</p>
+        </footer>
+    </div>
+    <!-- end of admin page -->
+
+</body>
+</html>
