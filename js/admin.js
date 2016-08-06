@@ -4,11 +4,6 @@
  *	This is the javascript for admin page
  */
 
-// global variables
-var cars = [];
-var salesData = [];
-var rateData = [];
-
 $(document).on("pagebeforeshow", "#admin", function() {
 
 	$.ajax({
@@ -22,15 +17,25 @@ $(document).on("pagebeforeshow", "#admin", function() {
 // page event for #admin
 var handleAdmin = function(data) {
 
-	// get cars array
-	cars = data.cars;
+	if(!(window.localStorage))
+	{
+		alert("[Error] localStorage is not supported!");
+		return;
+	}
 
+	// get cars array
+	var cars = data.cars;
+
+	// initialize variables to draw chart
 	var salesTitle = "Car Sales";
 	var rateTitle = "Average Rating";
 	var colors = [ "#F44336", "#4CAF50", "#9C27B0", "#2196F3" ];
 	var carLabels = [];
+	var salesData = [];
+	var rateData = [];
 
-	// loop to set labels and data for graphs
+
+	// loop to set labels and data for charts
 	for(var i = 0; i < cars.length; i++)
 	{
 		// set names of cars as for labels
@@ -119,7 +124,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
+					"<td>" + "$ " + formatCurrency(cars[i].price) + "</td>" +
 					"<td>" + salesData[i] + "</td>" +
 				"</tr>";
 		salesBody += row;
@@ -140,7 +145,7 @@ var handleAdmin = function(data) {
 					"<td>" + cars[i].brand + "</td>" +
 					"<td>" + cars[i].model + "</td>" +
 					"<td>" + cars[i].color + "</td>" +
-					"<td>" + "$ " + parseInt(cars[i].price).toLocaleString("en") + "</td>" +
+					"<td>" + "$ " + formatCurrency(cars[i].price) + "</td>" +
 					"<td>" + rateData[i] + "</td>" +
 				"</tr>";
 		ratingBody += row;
@@ -148,6 +153,12 @@ var handleAdmin = function(data) {
 	$("#ratingTable tbody").empty().append(ratingBody);
     
     $("#ratingTable").trigger("create");
+
+
+	// add footer info
+	$('[data-role="footer"]').empty().append('<p>Project by: Alex Yeji Park and Laura Martinez</p>' +
+											'<p>Student #: 991 359 057, 991 376 790</p>'
+											);
 };
 
 
@@ -184,3 +195,12 @@ $(document).on("click", "#showRating", function() {
 		$("#showRating").html("Show Rating Table");	
 	}
 });
+
+// function to format price
+// it take an number as a parameter
+var formatCurrency = function(price) {
+
+	var origPrice = parseInt(price);
+	var formatted = origPrice.toLocaleString("en");
+	return formatted;
+};

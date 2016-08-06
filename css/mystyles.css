@@ -1,16 +1,16 @@
 /*
  * Author : Alex Yeji Park, Laura Martinez
- * Date : 
+ * Date : Aug. 05. 2016
  * 
  */
 
 
-/**** Custom Icon *****/
+/**** custom icon *****/
 
 .ui-icon-user:after {
-    background-image: url(../img/user.svg) 50% 50%;
+    background-image: url(../img/user.svg) 30% 30%;
     /* Make your icon fit */
-    background-size: 16px 16px;
+    background-size: 15px 15px;
 }
 
 
@@ -24,7 +24,7 @@ body, html {
 
 
 header {
-	height: 50px;
+    font-size: 130%;
 }
 
 footer {
@@ -40,7 +40,7 @@ img {
 
 a {
 	text-decoration: none;
-	padding: 5px !important;
+	padding: 2px !important;
 	text-align: center !important
 }
 
@@ -68,6 +68,7 @@ a {
     border: 1px solid #ccc !important;
     box-sizing: border-box;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 0 0 !important;
 }
 
 .list-container li img {
@@ -75,18 +76,22 @@ a {
 	width: 100% !important;
 	margin-bottom: 5px;
 }
-<<<<<<< HEAD
+
+/***** for detailPage *****/
+
+#carDetail {
+    text-align: center;
+}
 
 #price{
-    text-align: center;
     font-weight: bold;
-    font-size: 200%;
-
+    font-size: 150%;
+    color: #00a99d;
 }
 
-.center{
-    text-align: center;
 
+/***** for login dialog *****/
+
+#loginForm .ui-btn {
+    padding: 2%;
 }
-=======
->>>>>>> 76f63c183dc67c4257f7d1ea9291a4e0bb543964

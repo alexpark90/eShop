@@ -33,14 +33,14 @@
 
         <!-- header -->
         <header data-role="header">
-            <h1>This is Header</h1>
-            <a href="" data-rel="back" class="ui-btn ui-btn-right ui-corner-all ui-icon-user ui-btn-icon-notext"></a>
+            <h1>Admin Dashboard</h1>
+            <a href="" data-rel="back" class="ui-btn ui-btn-right ui-corner-all">Logout</a>
         </header>
 
         <!-- contents -->
         <section class="ui-content" role="main">
             <div class="ui-grid-solo">
-                <canvas id="salesChart" width="50%;" height="50%;"></canvas>
+                <canvas id="salesChart" width="50%;" height="30%;"></canvas>
             </div>
             <div class="ui-grid-solo">
                 <table id="salesTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive"
@@ -51,7 +51,7 @@
                             <th data-priority="3">Model</th>
                             <th data-priority="5">Color</th>
                             <th data-priority="4">Price</th>
-                            <th data-priority="2"># of Sold</th>
+                            <th data-priority="2"># Sold</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@
                 <a id="showSales" data-role="button">Show Sales Table</a>
             </div>
             <div class="ui-gird-solo">
-                <canvas id="ratingChart" width="50%;" height="50%;"></canvas>
+                <canvas id="ratingChart" width="35%;" height="20%;"></canvas>
             </div>
             <div class="ui-grid-solo">
                 <table id="ratingTable" data-role="table" data-mode="Reflow" class="table-stripe ui-responsive"
