@@ -6,12 +6,21 @@
 
 $(document).on("pagebeforeshow", "#admin", function() {
 
-	$.ajax({
-		type : "GET",
-		url : "cars.json",
-		dataType : "json",
-		success : handleAdmin
-	});
+	// only if a user access this page through login dialog
+	if(sessionStorage.getItem("logedAdmin"))
+	{
+		$.ajax({
+			type : "GET",
+			url : "cars.json",
+			dataType : "json",
+			success : handleAdmin
+		});	
+	}
+	else
+	{
+		alert("You should log in first!");
+		$(location).attr("href", "./index.html");
+	}	
 });
 
 // page event for #admin
