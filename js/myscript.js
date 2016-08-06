@@ -215,6 +215,8 @@ $(document).on("submit", "#loginForm", function() {
 	// if correct credentials are provided
 	if($("#id").val() == admin.id && $("#pwd").val() == admin.password)
 	{
+		// set session to remember loged in admin
+		sessionStorage.setItem("logedAdmin", $("#id").val());
 		// go to admin page
 		$(location).attr("href", "./admin.html");
 	}
