@@ -18,6 +18,7 @@
 	<!-- Styles : Jquery Mobile, my theme, My css -->
     <link href="css/jquery.mobile.css" rel="stylesheet">
     <link href="css/swiper.min.css" rel="stylesheet">
+    <link href="css/eShopTheme.min.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
 
     <!-- Scripts : jQuery, Jquery Mobile, My javascript-->
@@ -31,7 +32,7 @@
 
 <body>
     <!-- Home page -->
-    <div data-role="page" id="home" data-theme="a">
+    <div data-role="page" id="home" data-theme="c">
 
         <!-- header -->
         <header data-role="header">
@@ -73,7 +74,7 @@
 
 
     <!-- carDetail page -->
-    <div data-role="page" id="carDetail" data-theme="a">
+    <div data-role="page" id="carDetail" data-theme="c">
         
         <!-- header -->
         <header data-role="header">
@@ -85,7 +86,7 @@
         <!-- contents -->
         <section class="ui-content" role="main">
             <!-- photo -->
-            <div class="photo"></div>
+            <div class="photo ui-gird-solo"></div>
 
             <form id="buyForm">
                 <!-- rate-->
@@ -104,23 +105,23 @@
                 </fieldset>
                 <br>
                 <!-- quantity-->
-                <div>    
+                <div class="ui-grid-solo">    
                     <h2>Quantity:</h2>
                     <input type="number" id="quantity" min="1" max="100" value="1" required>
                 </div>
                 <br>
                 <!-- collapsible spec -->
-                <div data-role="collapsible" id="set">
+                <div data-role="collapsible" id="set" class="ui-grid-solo">
                     <h2>Specs</h2>
                     <p id="specs"></p>
                 </div>
                 <br>
                 <!-- price -->
-                <div id="price">Price:</div>
+                <div id="price" class="ui-grid-solo">Price:</div>
                 <!-- Error message-->
                 <p id="buyError"></p>
                 <!-- buy button -->
-                <div class="button-wrap">
+                <div class="button-wrap ui-grid-solo">
                     <button type="submit" class="ui-shadow ui-btn ui-corner-all">BUY</button>
                 </div>
             </form> 
@@ -133,7 +134,7 @@
     <!-- end of carDetail page -->
 
     <!-- Popup for login as an admin -->
-    <div data-role="page" id="popup" data-close-btn="right" data-theme="a">
+    <div data-role="page" id="popup" data-close-btn="right" data-theme="c">
         <header data-role="header">
             <h1>Admin Only</h1>
         </header>
@@ -147,7 +148,7 @@
                 <p id="loginError"></p>
                 <div class="ui-grid-a">
                     <button type="submit" class="ui-btn ui-block-a ui-corner-all">Login</button>
-                    <a href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</a>
+                    <button href="" data-rel="back" class="ui-btn ui-block-b ui-corner-all">Cancel</button>
                 </div>
             </form>      
             <br />
