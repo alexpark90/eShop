@@ -1,11 +1,11 @@
 /*
  * Author : Alex Yeji Park, Laura Martinez
- * Date : 
+ * Date : Aug. 05. 2016
  * 
  */
 
 
-/**** Custom Icon *****/
+/**** custom icon *****/
 
 .ui-icon-user:after {
     background-image: url(../img/user.svg) 30% 30%;
@@ -24,7 +24,6 @@ body, html {
 
 
 header {
-	height: auto;
     font-size: 130%;
 }
 
