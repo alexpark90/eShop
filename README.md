@@ -2,7 +2,7 @@
 
 Web based Mobile Application Project.
 It is a car shopping app utilizing jQueyMobile, Chartjs, and JSON.
-By Ajax calling, jQuery gets car and user data from a json file and display in the frontend dynamically.
+By Ajax calling, jQuery gets car and user data from a json file and display it in the frontend dynamically.
  
 ### Directories
  
